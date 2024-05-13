@@ -1,0 +1,126 @@
+<head>
+    <title>Ascii-Art-Web</title>
+    <style>
+        body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6%;
+    background-color: rgb(99, 99, 99);
+}
+
+h2 {
+    margin-right: 12%;
+}
+
+#in{
+    text-size-adjust: 100px ;
+    height: 50px;
+    width: 350px;
+    border: 3px solid #000000; /* Optional border styling */
+    border-radius: 10px; /* Optional border radius */
+    background-color: gray;
+
+}
+
+#out{
+    min-height: 500px;
+    min-width: 1200px;
+    height: max-content;
+    width: max-content;
+    border: 5px solid #000000; /* Optional border styling */
+    border-radius: 10px; /* Optional border radius */
+    background-color: lightgray;
+}
+
+button:hover {
+    background-color: maroon;
+  }
+
+.custom-button {
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove default button border */
+    border-radius: 10px; /* Set border radius to change the shape */
+    background-color: rgb(153, 0, 0); /* Set background color */
+    color: #fff; /* Set text color */
+    cursor: pointer;
+    
+}
+.dodo{   
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove default button border */
+    border-radius: 10px; /* Set border radius to change the shape */
+    background-color: rgb(153, 0, 0); /* Set background color */
+    color: #fff; /* Set text color */
+    cursor: pointer;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: lightgray;
+    border: 3px solid black;
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border-radius: 10px;
+    outline: none;
+  }
+
+  /* Add custom arrow icon */
+  select::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  /* Hover style */
+  select:hover {
+    border-color: maroon;
+  }
+
+  /* Focus style */
+  select:focus {
+    border-color: maroon;
+    box-shadow: 0 0 5px rgba(121, 121, 121, 0.5);
+    border-radius: 10px;
+  }
+
+  pre {
+    width: fit-content;
+    height: fit-content;
+  }
+    </style>
+</head>
+<body>
+    <center>
+        <form method="POST" action="/ascii-art">
+
+        <h2>Type Here: <textarea name="in" id="in" maxlength="500"></textarea></h2>
+        <select name="banner" id="bann">
+        <option value="standard">standard</option>
+        <option value="thinkertoy">thinkertoy</option>
+        <option value="shadow">shadow</option>
+        <option value="salman-special">salman-special</option>
+        <option value="carrot">carrot</option>
+
+        </select>
+
+
+        <button class="custom-button" type="submit">Submit</button>
+        <button class="dodo" type="submit" formaction="/download" name="downloadText" value="{{.Output}}">download</button>        
+        <fieldset>
+            <legend><h2>Ascii-Art-Web</h2></legend>
+                <pre>
+                    {{.Output}}
+                </pre>
+                
+        </fieldset>
+    </form>
+        <br>
+    </center>
+</body>
